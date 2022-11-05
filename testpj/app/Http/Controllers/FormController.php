@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ConfirmRequest;
 use App\Http\Requests\FormInfoRequest;
 use App\Http\Requests\SearchRequest;
-
+use App\Models\Contact;
 class FormController extends Controller
 {
         public function index(Request $request)
@@ -108,7 +108,7 @@ class FormController extends Controller
     public function search(SearchRequest $request)
     {    
         
-        $forms = Contact::where('fullname', 'LIKE BINARY',"%{$request->fullname}%");
+        $results = Contact::where('fullname', 'LIKE BINARY',"%{$request->fullname}%");
 
         if($request->gender==3){
         }else{
@@ -121,8 +121,8 @@ class FormController extends Controller
         if(isset($request->end_at)){
             $results=$results->where('created_at', '<=', "$request->end_at");
         }
-        $results=$results->where('email', 'LIKE BINARY', "%{$request->email}%")->get();
-
+        $results=$results->where('email', 'LIKE BINARY', "%{$request->email}%")->paginate(10);
+dd($results);
         $request->session()->put('result',$results);
 
         return redirect('/manegiment');

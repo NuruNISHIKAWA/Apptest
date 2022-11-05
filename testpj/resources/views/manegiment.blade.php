@@ -15,7 +15,7 @@
   <h1 class="title">管理画面</h1>
 
 <!-----------名前------------->
-  <form class="search" action="/confirm" method="POST">
+  <form class="search" action="/manegiment" method="POST">
     @csrf
 <div class="search-first">
   <div class="search-item">
@@ -148,8 +148,8 @@
     @endforeach
              @endif
 
-             </div>
-             </div>
+  </div>
+</div>
 
 </body>
 </html>
