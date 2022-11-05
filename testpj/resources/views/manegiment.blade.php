@@ -99,7 +99,6 @@
 </form>
 </div>
 
-<!--<p>{{ $results->links()}}</p>-->
 
 
 <div class="table_status">
