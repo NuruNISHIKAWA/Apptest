@@ -19,6 +19,7 @@ class ContactFactory extends Factory
             'email' =>$this->faker->safeEmail,
             'postcode' =>substr_replace($this->faker->postcode, '-', 3, 0),
             'address' =>substr($this->faker->address, 9),
+            'building_name'=>$this->faker->secondaryAddress,
             'opnion' =>$this->faker->realText
         ];
     }
